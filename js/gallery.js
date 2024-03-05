@@ -83,10 +83,12 @@ const images = [
   list.addEventListener("click", handleModalOpen);
   
   function handleModalOpen(event) {
+if (event.currentTarget === event.target) return;
+
     event.preventDefault();
   
-  const instance = basicLightbox.create(`<img src="${event.target.dataset.source}">
-    alt="${event.target.alt}"`);
+  const instance = basicLightbox.create(`<img src="${event.target.dataset.source}"
+    alt="${event.target.alt}">`);
     
     instance.show();
   }
